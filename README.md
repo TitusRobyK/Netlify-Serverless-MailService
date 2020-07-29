@@ -1,12 +1,10 @@
-## Netlify Functions Starter Kit 
-
-Hi there! This is a starter kit  repo to test out [Netlify’s Lambda Functions](https://www.netlify.com/docs/functions).
+## Netlify Serverless Mail Service API 
 
 If you want your own copy to play around with, the quickest way to get it up
 and running is clicking the Deploy to Netlify button below. It will clone
-this repository into your own account, and deploy the site to Netlify.
+this repository into your own account, and deploy the API to Netlify
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/TitusRobyK/Netlify-Functions-Starter)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/TitusRobyK/Netlify-Serverless-MailService)
 
 For an exhaustive understanding for the inner workings of a Netlify Function Refer https://docs.netlify.com/functions/build-with-javascript/
 
@@ -26,4 +24,19 @@ cd Netlify-Functions-Starter
 npm install
 npm run lambda-serve
 ```
-Invoke `localhost:9000/helloWorld` in your Rest Client or your Browser
+Set the following Environment Variables in Netlify Environment UI Console
+```
+MAIL_SERVICE = gmail
+MAIL_HOST= smtp.gmail.com
+MAIL_AUTH_USERNAME = username@gmail.com
+MAIL_AUTH_PASSWORD = mail_password
+```
+Invoke `localhost:9000/sendMail` in your Rest Client as POST Request with the following Request Payload 
+```
+{
+    "senderMailId":"'User <no-reply@xyz.com>'",
+    "subject":"Sending Email using Netlify Function API",
+    "mailContent":"This is a Test Mail ... !",
+    "receiverMailId":"xyz@abc.com"
+}
+```
