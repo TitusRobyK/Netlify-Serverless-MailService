@@ -1,0 +1,9 @@
+[build]
+    functions="lambda"
+    command = "npm run lambda-build"
+
+[context.production.environment]
+    MAIL_SERVICE="gmail"
+    MAIL_HOST="smtp.gmail.com"
+    MAIL_AUTH_USERNAME="xxx@gmail.com"
+    MAIL_AUTH_PASSWORD="xyzasdfpqrsd"
